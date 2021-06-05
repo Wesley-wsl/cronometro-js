@@ -10,7 +10,7 @@ function Start() {
     timer = setInterval(() => {
         ms += 1
         Timer()
-    }, 9.7)
+    }, 10)
 
     $start.setAttribute('disabled', '')
 }
