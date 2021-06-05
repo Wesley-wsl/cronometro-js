@@ -1,23 +1,45 @@
-let $inputMain = document.querySelector('#MainInput')
 let $start = document.querySelector('[data-js="start"]')
-let $stop = document.querySelector('[data-js="stop"]')
-let $reset = document.querySelector('[data-js="reset"]')
+let $setTimer = document.querySelector('#timer')
+let mm = 00
+let ss = 00
+let ms = 00
 let timer
 
+
 function Start() {
-    timer = setTimeout(() => {
-        $inputMain.value = Number($inputMain.value) + 1
-        Start()
-    }, 1000)
-    $start.setAttribute('disabled','')
+    timer = setInterval(() => {
+        ms += 1
+        Timer()
+    }, 15)
+
+    $start.setAttribute('disabled', '')
 }
 
 function Stop() {
-    clearTimeout(timer)
+    clearInterval(timer)
     $start.removeAttribute('disabled')
 }
 
 function Reset() {
-    $inputMain.value = 0
+    $setTimer.innerText = '00:00:00'
+    mm = 00
+    ss = 00
+    ms = 00
     Stop()
+}
+
+function Timer() {
+
+    if (ms == 60) {
+        ss += 1
+        ms = 00
+    }
+
+    if (ss == 60) {
+        mm += 1
+        ss = 00
+    }
+
+    let format = (mm < 10 ? '0' + mm : mm) + ':' + (ss < 10 ? '0' + ss : ss) + ':' + (ms < 10 ? '0' + ms : ms)
+    $setTimer.innerText = format
 }
