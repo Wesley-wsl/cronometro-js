@@ -16,15 +16,14 @@
     </header>
 
     <main>
-        <section id="cronometro">
-
+        <section>
             <div>
-                <input type="text" value=0 readonly id="MainInput" />
+                <h2 id="timer">00:00:00</h2>
             </div>
 
             <button type='button' data-js="start" onclick="Start()">Start</button>
-            <button type='button' data-js="stop" onclick="Stop()">Stop</button>
-            <button type='button' data-js="reset" onclick="Reset()">Reset</button>
+            <button type='button' onclick="Stop()">Stop</button>
+            <button type='button' onclick="Reset()">Reset</button>
         </section>
 
     </main>
